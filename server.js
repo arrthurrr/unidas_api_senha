@@ -7,7 +7,7 @@ app.use(express.json());
 
 // redireciona o usuario ao README do repositorio caso tente acessar o endereco diretamente
 app.get('/', function(req, res) {
-    return true; // adicionar readme
+    res.redirect("https://github.com/arrthurrr/unidas_api_senha#readme");
 });
 
 // utiliza POST com JSON em localhost:port/verifica_senha para verificar a senha
