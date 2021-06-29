@@ -1,0 +1,44 @@
+const test = require('tape')
+const server = require('./server.js')
+
+const regex_regra = /^(?!.*(.).*\1)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+]).{9,}$/;
+
+test('Testar ""', (t) => {
+    t.assert(server.verifica_regex(regex_regra, "") === false, "Rejeitou '' corretamente");
+    t.end();  
+});
+
+test('Testar "aa"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'aa') === false, "Rejeitou 'aa' corretamente");
+    t.end();  
+});
+
+test('Testar "ab"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'ab') === false, "Rejeitou 'ab' corretamente");
+    t.end();  
+});
+
+test('Testar "AAAbbbCc"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'AAAbbbCc') === false, "Rejeitou 'AAAbbbCc' corretamente");
+    t.end();  
+});
+
+test('Testar "AcZp7*baar"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'AcZp7*baar') === false, "Rejeitou 'AcZp7*baar' corretamente");
+    t.end();  
+});
+
+test('Testar "AcZp7*baAr"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'AcZp7*baAr') === false, "Rejeitou 'AcZp7*baAr' corretamente");
+    t.end();  
+});
+
+test('Testar "AcZp7 bar"', (t) => {
+    t.assert(server.verifica_regex(regex_regra, 'AcZp7 bar') === false, "Rejeitou 'AcZp7 bar' corretamente");
+    t.end();
+});
+
+test('Testar AcZp7*bar', (t) => {
+    t.assert(server.verifica_regex(regex_regra, "AcZp7*bar") === true, "Aceitou AcZp7*bar corretamente");
+    t.end();
+});

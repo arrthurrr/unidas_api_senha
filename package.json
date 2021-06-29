@@ -1,17 +1,33 @@
 {
-  "name": "teste_unidas",
-  "version": "1.0",
-  "description": "Teste pratico Unidas em NodeJS",
+  "name": "unidas_api_senha",
+  "version": "1.0.0",
+  "description": "Teste Unidas",
   "main": "server.js",
   "scripts": {
+    "test": "server.test",
     "start": "node server.js"
   },
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arrthurrr/unidas_api_senha.git"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+  "keywords": [
+    "nodejs",
+    "password",
+    "senha",
+    "regex",
+    "api"
+  ],
+  "author": "Arthur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arrthurrr/unidas_api_senha/issues"
+  },
+  "homepage": "https://github.com/arrthurrr/unidas_api_senha#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "tape": "^5.2.2"
+  },
+  "devDependencies": {}
 }

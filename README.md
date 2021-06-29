@@ -23,7 +23,7 @@ node server.js
 A API irá retornar true ou false de acordo com o teste feito na senha enviada para saber se atende aos requisitos mínimos:
 
 * mínimo de 9 caracteres
-* sem repetição consecutiva
+* sem repetição de caracteres
 * ao menos um número (0-9)
 * ao menos uma letra maiúscula (AZ)
 * ao menos uma letra minúscula (az)
@@ -42,3 +42,14 @@ O retorno será:
 {'senha_valida': 'true'}
 // caso não atenda
 {'senha_valida': 'false'}
+
+## Exemplo de uso pelo terminal:
+
+```bash
+curl -d '{"valor":"AcZp7*bar"}' -H "Content-Type: application/json" http://localhost:8085/verifica_senha {"valor":"AcZp7*bar"}
+```
+
+## Para testes unitários:
+```bash
+node server.test
+```
